@@ -245,7 +245,7 @@ struct SeqSwitch2OutModeItem : MenuItem {
 	SeqSwitch2 *seqSwitch2;
 	SeqSwitch2::OutMode outMode;
 
-	void onAction(const event::Action &e) override {
+	void onAction(event::Action &e) override {
 		seqSwitch2->outMode = outMode;
 	};
 
@@ -262,7 +262,7 @@ struct SeqSwitch2RangeItem : MenuItem {
 	SeqSwitch2::InputRange inputRange;
 
 
-	void onAction(const event::Action &e) override {
+	void onAction(event::Action &e) override {
 		seqSwitch2->inputRange = inputRange;
 	};
 

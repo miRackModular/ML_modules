@@ -274,7 +274,7 @@ struct QuantumModeItem : MenuItem {
         Quantum::Mode mode;
 
  
-        void onAction(const event::Action &e) override {
+        void onAction(event::Action &e) override {
                 quantum->mode = mode;
         };
 
@@ -289,7 +289,7 @@ struct QuantumTranposeModeItem : MenuItem {
 	Quantum *quantum;
 	bool transpose_select;
 
-    void onAction(const event::Action &e) override {
+    void onAction(event::Action &e) override {
             quantum->transpose_select = transpose_select;
   	};
 

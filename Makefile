@@ -1,4 +1,4 @@
-
+V1_COMPAT=1
 
 SOURCES += $(wildcard src/*.cpp)
 SOURCES += $(wildcard freeverb/*.cpp)

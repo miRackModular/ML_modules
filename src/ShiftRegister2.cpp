@@ -76,7 +76,7 @@ void ShiftRegister2::process(const ProcessArgs &args) {
 			float new_in1 = inputs[IN1_INPUT].getNormalVoltage( randf()*10.0-5.0 );
 			float new_in2 = inputs[IN2_INPUT].getNormalVoltage( new_in1 + 1.0 );
 
-			for(int i=32; i>0; i--) values[i] = values[i-1];
+			for(int i=31; i>0; i--) values[i] = values[i-1];
 
 			float p1 = params[PROB1_PARAM].getValue() + clamp(inputs[PROB1_INPUT].getNormalVoltage(0.0f),-10.0f,10.0f)/10.0f;
 			float p2 = params[PROB2_PARAM].getValue() + clamp(inputs[PROB2_INPUT].getNormalVoltage(0.0f),-10.0f,10.0f)/10.0f;

@@ -1,6 +1,6 @@
 {
   "slug": "ML_modules",
-  "name": "ML_modules",
+  "name": "ML Modules",
   "version": "1.0.0",
   "license": "BSD-3-Clause",
   "author": "Martin Lueders",
@@ -144,8 +144,8 @@
       "tags": ["Switch"]
     },
     {
-      "slug": "TrigSwitch3 8->1",
-      "name": "TrigSwitch3",
+      "slug": "TrigSwitch3",
+      "name": "TrigSwitch3 8->1",
       "description": "",
       "tags": ["Switch"]
     },

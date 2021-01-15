@@ -293,7 +293,7 @@ struct BPMdetectWidget : ModuleWidget {
     		BPMdetect *module;
     		bool mfine;
 
-    		void onAction(const event::Action &e) override {
+    		void onAction(event::Action &e) override {
     		    module->fine = mfine;
     		};
 
@@ -308,12 +308,12 @@ struct BPMdetectWidget : ModuleWidget {
 	    	BPMdetect *module;
 	    	bool mfine;
 
-    		void onAction(const event::Action &e) override {
+    		void onAction(event::Action &e) override {
         	    module->fine = mfine;
     		};
 
 	    	void step() override {
-	    	    rightText = (module->fine != mfine)? "✔" : "";
+	    	    rightText = (module->fine == mfine)? "✔" : "";
 	       	};
 
 		};

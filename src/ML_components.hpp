@@ -151,28 +151,5 @@ struct BlueMLSwitch : SvgSwitch { //Toggle
 
 
 
-struct MLScrew : FramebufferWidget {
-
-    SvgWidget *sw;
-    TransformWidget *tw;
-
-	MLScrew() {
-
-        tw = new TransformWidget();
-	    addChild(tw);
-	    sw = new SvgWidget();
-	    tw->addChild(sw);
-	    sw->setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/MLScrew.svg")));
-		tw->box.size = sw->box.size;	
-
-        float angle = 1.71f * (rand() / (static_cast<double>(RAND_MAX) + 1.0)); 
-
-        Vec transl = tw->box.getCenter();
-        tw->translate( transl );
-        tw->rotate(angle);
-        tw->translate( transl.neg() );
-
-	}
-
-    
+struct MLScrew : ScrewSilver {    
 };

@@ -166,7 +166,7 @@ struct SeqSwitchRangeItem : MenuItem {
         SeqSwitch *seqSwitch;
         SeqSwitch::InputRange inputRange;
 
-        void onAction(const event::Action &e) override {
+        void onAction(event::Action &e) override {
                 seqSwitch->inputRange = inputRange;
         };
 

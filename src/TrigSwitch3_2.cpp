@@ -118,7 +118,7 @@ struct TrigSwitch3_2OutModeItem : MenuItem {
 	TrigSwitch3_2 *trigSwitch;
 	TrigSwitch3_2::OutMode outMode;
 
-	void onAction(const event::Action &e) override {
+	void onAction(event::Action &e) override {
 		trigSwitch->outMode = outMode;
 	};
 
