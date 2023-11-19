@@ -23,13 +23,12 @@ struct VoltMeter : Module {
 
 
 	VoltMeter() {
-		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS); for(int i=0; i<4; i++) {volts[i] = 0.0f; active[i] = false;}};
+		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS); for(int i=0; i<4; i++) {volts[i] = 0.0f;}};
 
 
 	void process(const ProcessArgs &args) override;
 
 	float volts[4];
-	bool active[4];
 
 };
 
@@ -38,8 +37,10 @@ struct VoltMeter : Module {
 void VoltMeter::process(const ProcessArgs &args) {
 
 	for(int i=0; i<4; i++) {
-		active[i] = inputs[IN1_INPUT+i].isConnected();
-		volts[i] = 0.9 * volts[i] + 0.1 * inputs[IN1_INPUT+i].getNormalVoltage(0.0);
+		if (!inputs[IN1_INPUT+i].active)
+			volts[i] = 0;
+		else
+			volts[i] = 0.9 * volts[i] + 0.1 * inputs[IN1_INPUT+i].getNormalVoltage(0.0);
 	};
 
 
@@ -134,7 +135,7 @@ VoltMeterWidget::VoltMeterWidget(VoltMeter *module) {
 		display->box.pos = Vec(10,90+i*delta_y);
 		display->box.size = Vec(100, 20);
 		if(module) display->value = &module->volts[i];
-		if(module) display->on = &module->active[i];
+		if(module) display->on = &module->inputs[VoltMeter::IN1_INPUT+i].active;
 		addChild(display);
 
 //		label[i] = new TextField();

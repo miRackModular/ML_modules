@@ -126,9 +126,9 @@ struct ChannelDisplayWidget : TransparentWidget {
     nvgFontFaceId(args.vg, font->handle);
     nvgTextLetterSpacing(args.vg, 2.5);
 
-    char displayStr[2];
+    char displayStr[3];
 
-    if(value) {sprintf(displayStr, "%2u", (unsigned) *value);}
+    if(value) {snprintf(displayStr, sizeof(displayStr), "%2u", (unsigned) *value);}
 
     Vec textPos = Vec(6.0f, 17.0f);
 

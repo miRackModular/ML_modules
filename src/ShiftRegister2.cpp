@@ -49,7 +49,7 @@ struct ShiftRegister2 : Module {
 
 	void process(const ProcessArgs &args) override;
 
-	int numSteps;
+	int numSteps = 0;
 	float values[32 * PORT_MAX_CHANNELS] = {};
 	int channels[32] = {};
 
@@ -196,7 +196,7 @@ struct IntDisplayWidget : TransparentWidget {
     char displayStr[3];
 //    while(to_display.length()<1) to_display = ' ' + to_display;
 
-    if(value) {sprintf(displayStr, "%2u", (unsigned) *value);}
+    if(value) {snprintf(displayStr, sizeof(displayStr), "%2u", (unsigned) *value);}
 
     Vec textPos = Vec(6.0f, 17.0f);
 

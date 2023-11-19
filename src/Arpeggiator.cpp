@@ -15,7 +15,7 @@ using namespace dsp;
 #define MAX(a,b) (a>b)?a:b
 #define MIN(a,b) (a<b)?a:b
 
-#define PORT_MAX_CHANNELS 16
+// #define PORT_MAX_CHANNELS 16
 
 #define DISPLAY_WIDTH  60
 #define DISPLAY_HEIGHT 120
@@ -447,9 +447,9 @@ void Arpeggiator::step() {
 	// ----------------
 
 	int channels_pitch   = inputs[PITCH_INPUT].getChannels();
-	int channels_gate    = inputs[GATE_OUTPUT].getChannels();
+	// int channels_gate    = inputs[GATE_OUTPUT].getChannels();
 
-	int channels = MIN(channels_pitch, channels_gate);
+	int channels = channels_pitch; //MIN(channels_pitch, channels_gate);
 
 	// if hold is active:
 	// - notes will not be removed if their gate goes down.

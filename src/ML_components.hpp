@@ -155,11 +155,7 @@ struct BlueMLSwitch : SvgSwitch { //Toggle
 
 
 
-struct MLScrew : FramebufferWidget {
-
-    SvgWidget *sw;
-    TransformWidget *tw;
-
+struct MLScrew : SvgScrew {
 	MLScrew();
 };
 

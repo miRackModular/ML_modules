@@ -202,9 +202,9 @@ struct NumberDisplayWidget2 : TransparentWidget {
     nvgFontFaceId(args.vg, font->handle);
     nvgTextLetterSpacing(args.vg, 2.5);
 
-    char display_string[10];
+    char display_string[7];
 
-    if(value) sprintf(display_string,"%6.1f",*value);
+    if(value) snprintf(display_string,sizeof(display_string),"%6.1f",*value);
 
     Vec textPos = Vec(6.0f, 17.0f);
 
@@ -313,7 +313,7 @@ struct BPMdetectWidget : ModuleWidget {
     		};
 
 	    	void step() override {
-	    	    rightText = (module->fine != mfine)? "✔" : "";
+	    	    rightText = (module->fine == mfine)? "✔" : "";
 	       	};
 
 		};
